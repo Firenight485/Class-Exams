@@ -3,6 +3,7 @@
 #include<volume.h>
 #include<iostream>
 
+// default constructor
 Volume::Volume(double quanity, string uom) {
     SetQuantity(quanity);
     SetMeasure(uom);
@@ -16,17 +17,21 @@ string Volume::GetMeasure() const {
     return measure_;
 }
 
+// checks if the quanity is in range
 void Volume::SetQuantity(double quantity) {
     if (quantity > -1)
         quantity_ = quantity;
 }
 
+//  sets the type of measurments
 void Volume::SetMeasure(string measure) {
     if ( measure == "ounces" || measure == "tablespoons"
     || measure== "teaspoons" || measure == "cups")
         measure_ = measure;
 }
 
+// conversions for each measurement being converted into their
+// respective counterpart
 void Volume::Convert(string converted_measure) {
     if (measure_ == "ounces") {
         if (converted_measure == "tablespoons") {
@@ -75,7 +80,9 @@ void Volume::Convert(string converted_measure) {
     }
 }
 
-
+// checks if the measurements are equal, if they are not then the measure
+// is converted the quanities are converted as well and added
+// together and outputted
 void Volume::Add(Volume v2) {
     if (v2.measure_ != measure_) {
         v2.Convert(measure_);

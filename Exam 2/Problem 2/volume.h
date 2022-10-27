@@ -1,5 +1,8 @@
 // Copyright 2022 CSCE240
 // Exam 2 problem 2 define the Volume class
+#ifndef _VOLUME_H_
+#define _VOLUME_H_
+
 #include<string>
 using std::string;
 class Volume {
@@ -46,8 +49,10 @@ class Volume {
 //                              v1.Add(v2);  // v1 will be changed to 13 ounces
     void Add(Volume t);
 
-   // friend Volume& operator+(const Volume& v1, const Volume& v2);
+    // friend Volume& operator+(const Volume& v1, const Volume& v2);
  private:
     double quantity_;
     string measure_;
 };
+
+#endif  // _PROBLEM_1_
