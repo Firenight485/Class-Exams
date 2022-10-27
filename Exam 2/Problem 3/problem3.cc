@@ -9,35 +9,41 @@ int WhichChapter(const Book * bptr, string ch) {
     int numofchap = bptr->GetNumChapters();
     const string * test = bptr->GetChapters();
     int loc = 0;
-    if (numofchap >= 1) {
+    int counter = -1;
+    if (numofchap >= -1) {
         for (int i = 0; i < numofchap; ++i) {
             if (test[i] == ch) {
-                loc = i + 1;
-            } else if (test[1] != ch) {
-                return - 1;
+                loc = i;
+                int temptest = loc + 1;
+                counter = temptest;
             }
+            }
+        } else {
+            return -1;
         }
-    } else {
+    if (counter >= 0) {
+        return counter;
+     } else if (counter <= 0) {
         return -1;
     }
-    return loc;
 }
+
 
 void RemoveChapter(Book * bptr, string ch) {
     const string * temp = bptr->GetChapters();
-    int newsize1 = bptr->GetNumChapters();
-    std::string newchap[newsize1];
+    int Knewsize1 = bptr->GetNumChapters();
+    std::string newchap[Knewsize1];
 
     int temp2 = 0;
     int counter = 0;
 
-    for (int i = 0; i < newsize1; ++i) {
+    for (int i = 0; i < Knewsize1; ++i) {
         if (bptr->GetChapters()[i] != ch) {
             newchap[temp2++] = bptr->GetChapters()[i];
         } else if (bptr->GetChapters()[i] == ch) {
             counter++;
         }
     }
-    int finalcount = newsize1 - counter;
+    int finalcount = Knewsize1 - counter;
     bptr->SetChapters(newchap, finalcount);
 }
