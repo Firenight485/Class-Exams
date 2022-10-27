@@ -35,6 +35,7 @@ int WhichChapter(const Book * bptr, string ch) {
      } else if (counter <= 0) {
         return -1;
     }
+    return 0;
 }
 
 
