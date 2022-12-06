@@ -49,7 +49,6 @@ class Volume {
 //                              v1.Add(v2);  // v1 will be changed to 13 ounces
     void Add(Volume t);
 
-    // friend Volume& operator+(const Volume& v1, const Volume& v2);
  private:
     double quantity_;
     string measure_;

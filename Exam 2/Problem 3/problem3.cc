@@ -32,9 +32,10 @@ int WhichChapter(const Book * bptr, string ch) {
         //  and where it has been found
     if (counter >= 0) {
         return counter;
-     } else if (counter <= 0) {
+     } else if (counter < 0) {
         return -1;
     }
+    return 0;
 }
 
 
